@@ -12,6 +12,9 @@ router.route('/:id')
     .patch(siteController.updateSite)
     .delete(siteController.deleteSite)
 
+router.route('/ihs')
+    .get(siteController.getAllIHSid)
+
 
 
 

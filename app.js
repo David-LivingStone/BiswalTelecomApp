@@ -7,6 +7,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const spareReturnRouter = require('./routers/spareReturnRouter')
 const spareRouter = require('./routers/spareRouter');
 const userRouter = require('./routers/userRouter')
+const ppmRouter = require('./routers/ppmRouter')
 
 
 
@@ -40,13 +41,13 @@ app.use('/api/v1', categoriesRouter)
 app.use('/api/v1/spare', spareRouter)
 app.use('/api/v1/return', spareReturnRouter)
 app.use('/api/v1/users', userRouter)
+app.use('/api/v1/ppm', ppmRouter)
 
 
 // ROUTER MIDDLEWARE
 app.all('*', (req, res, next) => {
     next(new AppError(`Can not find ${req.originalUrl} on this server!`))
 });
-
 
 
 module.exports = app;
